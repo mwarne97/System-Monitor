@@ -26,13 +26,11 @@ float Process::CpuUtilization() {
   
   long total_time_seconds = LinuxParser::ActiveJiffies(Pid()) / hertz;
   
-  long uptime = LinuxParser::UpTime();
-  
-  long seconds = uptime - Process::UpTime();
+  long seconds = Process::UpTime();
   
   cpu_utilization_ = (total_time_seconds / seconds);
   
-  return cpu_utilization_; 
+  return cpu_utilization_;
 }
 
 // TODO: Return the command that generated this process
